@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firda Anjani — Administrative Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --grey-50: #F7F8FA;
+    --grey-100: #EEF0F4;
+    --grey-200: #D8DCE6;
+    --grey-400: #9198AA;
+    --grey-600: #5C6475;
+    --navy-900: #0F1B2D;
+    --navy-700: #1C3150;
+    --navy-500: #2D4D78;
+    --navy-300: #4A72A6;
+    --accent: #7A9CC4;
+    --accent-light: #C8D9EE;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--navy-900);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5vw;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy-700);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--grey-600);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--navy-700); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 5vw 4rem;
+    background: linear-gradient(135deg, var(--white) 0%, var(--grey-50) 40%, var(--accent-light) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 55%;
+    height: 120%;
+    background: linear-gradient(145deg, var(--navy-900) 0%, var(--navy-500) 100%);
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+    z-index: 0;
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--navy-500);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1.5px;
+    background: var(--navy-500);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--navy-900);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name span {
+    font-weight: 600;
+    color: var(--navy-700);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--grey-600);
+    margin-bottom: 2rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-summary {
+    font-size: 0.92rem;
+    color: var(--grey-600);
+    max-width: 440px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-contact {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .contact-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--navy-700);
+    font-weight: 500;
+  }
+
+  .contact-chip svg { color: var(--navy-300); }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: var(--navy-700);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .cta-btn:hover {
+    background: var(--navy-900);
+    transform: translateY(-1px);
+  }
+
+  /* HERO PHOTO */
+  .hero-photo-wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-photo-frame {
+    position: relative;
+    width: min(340px, 80%);
+  }
+
+  .hero-photo-frame::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    right: 16px;
+    bottom: 16px;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    z-index: 0;
+  }
+
+  .hero-photo-frame img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    position: relative;
+    z-index: 1;
+    filter: brightness(0.95) contrast(1.05);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    box-shadow: 0 8px 32px rgba(15,27,45,0.14);
+    z-index: 2;
+  }
+
+  .badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--navy-700);
+    line-height: 1;
+  }
+
+  .badge-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--grey-400);
+  }
+
+  /* SECTIONS */
+  section { padding: 5rem 5vw; }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--navy-300);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 1.5px;
+    background: var(--navy-300);
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--navy-900);
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT / SKILLS */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .skill-card {
+    background: var(--grey-50);
+    border: 1px solid var(--grey-200);
+    padding: 1.4rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .skill-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(42,77,120,0.08);
+  }
+
+  .skill-icon {
+    width: 2rem;
+    height: 2rem;
+    background: var(--navy-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-icon svg { color: white; }
+
+  .skill-name {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy-700);
+    margin-bottom: 0.4rem;
+  }
+
+  .skill-desc {
+    font-size: 0.78rem;
+    color: var(--grey-600);
+    line-height: 1.6;
+  }
+
+  /* EXPERIENCE */
+  .exp-section {
+    background: var(--navy-900);
+    color: var(--white);
+  }
+
+  .exp-section .section-label { color: var(--accent); }
+  .exp-section .section-label::before { background: var(--accent); }
+  .exp-section .section-heading { color: var(--white); }
+
+  .exp-timeline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .exp-card {
+    background: var(--navy-700);
+    padding: 2.5rem;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .exp-card:hover { background: var(--navy-500); }
+
+  .exp-period {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .exp-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .exp-company {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-light);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .exp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exp-list li {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.7);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.55;
+  }
+
+  .exp-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .edu-card {
+    border-left: 3px solid var(--navy-700);
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    background: var(--grey-50);
+  }
+
+  .edu-period {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy-300);
+    margin-bottom: 0.5rem;
+  }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 0.2rem;
+  }
+
+  .edu-school {
+    font-size: 0.82rem;
+    color: var(--grey-600);
+    margin-bottom: 0.4rem;
+  }
+
+  .edu-gpa {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--navy-500);
+    background: var(--accent-light);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .edu-note {
+    font-size: 0.85rem;
+    color: var(--grey-600);
+    line-height: 1.75;
+    max-width: 800px;
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    padding: 1.5rem 2rem;
+  }
+
+  /* PROJECTS */
+  .projects-section {
+    background: var(--grey-50);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--white);
+    border: 1px solid var(--grey-200);
+    overflow: hidden;
+    transition: box-shadow 0.25s, transform 0.25s;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 12px 40px rgba(15,27,45,0.1);
+    transform: translateY(-4px);
+  }
+
+  .project-img {
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    background: var(--grey-100);
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .project-img {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-500) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .project-img {
+    width: 100%;
+    height:auto;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    background: var(--grey-100);
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .project-body {
+    padding: 1.5rem;
+  }
+
+  .project-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy-300);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .project-desc {
+    font-size: 0.8rem;
+    color: var(--grey-600);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tool-chip {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy-700);
+    background: var(--accent-light);
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* CERTIFICATIONS */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .cert-card {
+    border: 1px solid var(--grey-200);
+    overflow: hidden;
+    background: var(--white);
+    transition: box-shadow 0.2s;
+  }
+
+  .cert-card:hover {
+    box-shadow: 0 6px 24px rgba(15,27,45,0.08);
+  }
+
+  .cert-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .cert-img-placeholder {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(135deg, var(--grey-100) 0%, var(--accent-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .cert-body {
+    padding: 1.1rem;
+  }
+
+  .cert-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .cert-issuer {
+    font-size: 0.72rem;
+    color: var(--grey-400);
+  }
+
+  /* ORG. PARTICIPATION */
+  .org-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .org-card {
+    border: 1px solid var(--grey-200);
+    overflow: hidden;
+    background: var(--white);
+    transition: box-shadow 0.3s;
+  }
+
+  .org-card:hover {
+    box-shadow: 0 12px 40px rgba(15,27,45,0.1);
+  }
+
+  .org-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .org-img-placeholder {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(135deg, var(--grey-100) 0%, var(--accent-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--grey-200);
+  }
+
+  .org-body {
+    padding: 1.1rem;
+  }
+
+  .org-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+  }
+
+  .org-issuer {
+    font-size: 0.72rem;
+    color: var(--grey-400);
+  }
+
+
+  /* CONTACT / FOOTER */
+  .contact-section {
+    background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 6rem 5vw;
+  }
+
+  .contact-section .section-label { color: var(--accent); justify-content: center; }
+  .contact-section .section-label::before { background: var(--accent); }
+
+  .contact-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.05;
+  }
+
+  .contact-sub {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 3rem;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .contact-info-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .contact-info-val {
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 300;
+  }
+
+  footer {
+    background: var(--navy-900);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.25rem 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.06em;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 5rem; }
+    .hero::before { display: none; }
+    .hero-photo-wrap { order: -1; margin-bottom: 2rem; }
+    .about-grid, .exp-timeline, .edu-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .hero-photo-frame { width: min(260px, 80%); }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text > * {
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.2s; }
+  .hero-title { animation-delay: 0.3s; }
+  .hero-summary { animation-delay: 0.4s; }
+  .hero-contact { animation-delay: 0.5s; }
+  .cta-btn { animation-delay: 0.6s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Firda Anjani</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#organization">Org. Participation</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Administrative Professional</div>
+    <h1 class="hero-name">Firda<br><span>Anjani</span></h1>
+    <p class="hero-title">6+ Years in Office & HR Administration</p>
+    <p class="hero-summary">Administration professional skilled in scheduling, document management, data entry, HR administration, and daily coordination — ensuring smooth workflow processes across multi-department environments.</p>
+    <div class="hero-contact">
+      <div class="contact-chip">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+        +62-882-1198-6691
+      </div>
+      <div class="contact-chip">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        frdnjn.jani@gmail.com
+      </div>
+    </div>
+    <a href="#contact" class="cta-btn">
+      Get In Touch
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-frame">
+      <img src="Proofil putih.png" alt="Firda Anjani"
+        onerror="this.onerror=null; this.src=''; this.parentNode.innerHTML='<div style=\'width:100%;aspect-ratio:3/4;background:linear-gradient(145deg,#1C3150 0%,#2D4D78 100%);display:flex;align-items:center;justify-content:center;\'><svg width=80 height=80 fill=none stroke=\'rgba(255,255,255,0.25)\' stroke-width=1.5 viewBox=\'0 0 24 24\'><circle cx=12 cy=8 r=4/><path d=\'M4 20c0-4 3.6-7 8-7s8 3 8 7\'/></svg></div><div class=hero-badge><div class=badge-num>6+</div><div class=badge-label>Years Experience</div></div>';">
+      <div class="hero-badge">
+        <div class="badge-num">6+</div>
+        <div class="badge-label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / SKILLS -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">About Me</div>
+      <h2 class="section-heading">Skills &<br>Competencies</h2>
+      <p style="font-size:0.9rem;color:var(--grey-600);line-height:1.8;margin-bottom:1.5rem;">
+        With over 6 years supporting team operations, I bring a structured, detail-oriented approach to every administrative task — from HR databases managing 730+ employee records to procurement and logistics dashboards that improved operational visibility.
+      </p>
+      <p style="font-size:0.9rem;color:var(--grey-600);line-height:1.8;">
+        My background spans financial administration, HR management, document control, and supply chain coordination, combined with strong proficiency in Microsoft Excel advanced functions and Google Workspace tools.
+      </p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div class="skill-name">Administration & Documentation</div>
+        <div class="skill-desc">Document filing, archiving, report preparation, data entry, contract administration, correspondence management.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="skill-name">HR Administration</div>
+        <div class="skill-desc">Employee database, attendance admin, personnel documentation, employment contracts, HR reporting.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <div class="skill-name">Microsoft Office</div>
+        <div class="skill-desc">Advanced Excel (XLOOKUP, PivotTable, dashboards), Word, PowerPoint for data management and reporting.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+        </div>
+        <div class="skill-name">Google Workspace</div>
+        <div class="skill-desc">Docs, Sheets, Slides, Drive, Calendar for document management, reporting, and team collaboration.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="skill-name">Email Management</div>
+        <div class="skill-desc">Business correspondence, inbox organization, email archiving, stakeholder communication, timely follow-up.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="skill-name">Soft Skills</div>
+        <div class="skill-desc">Cross-department coordination, multitasking, clear written & verbal communication, team collaboration.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="exp-section">
+  <div class="section-label">Work History</div>
+  <h2 class="section-heading">Professional Experience</h2>
+  <div class="exp-timeline">
+    <div class="exp-card">
+      <div class="exp-period">2018 – 2019</div>
+      <div class="exp-role">Administrative Staff</div>
+      <div class="exp-company">PT Svaraputra Penjuru Vijaya</div>
+      <ul class="exp-list">
+        <li>Compiled daily and monthly financial transaction reports using the company's financial software.</li>
+        <li>Performed systematic filing and archiving of transaction documents.</li>
+        <li>Maintained organized records to support accurate financial reporting and auditing processes.</li>
+      </ul>
+    </div>
+    <div class="exp-card">
+      <div class="exp-period">2019 – 2025</div>
+      <div class="exp-role">Administrative Staff</div>
+      <div class="exp-company">PT Tangguh Adi Perkasa</div>
+      <ul class="exp-list">
+        <li>Managed end-to-end HR administration including employee database for 730+ employees.</li>
+        <li>Conducted periodic inventory audits to maintain stock accuracy and operational reporting.</li>
+        <li>Attended internal and external cross-department coordination meetings and documented outcomes.</li>
+        <li>Filed and maintained delivery, installation, and employee-related documents per company procedures.</li>
+        <li>Developed advanced Excel dashboards for manpower monitoring and procurement tracking.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Academic Background</div>
+  <h2 class="section-heading">Education</h2>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-period">2014 – 2017</div>
+      <div class="edu-degree">Accounting</div>
+      <div class="edu-school">SMK Karya Guna Bhakti 2, Kota Bekasi</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-period">2021 – 2025</div>
+      <div class="edu-degree">Bachelor of Communication</div>
+      <div class="edu-school">Institut Bisnis Muhammadiyah Bekasi</div>
+      <div class="edu-gpa">GPA 3.77</div>
+    </div>
+  </div>
+  <div class="edu-note">
+    Throughout my secondary and higher education, I actively engaged in organizational leadership, consistently serving as Secretary — spanning the SMK Karya Guna Bhakti 2 English Club, HIMAKOM IBM Bekasi, and major institutional events like IKOM Goes to Baduy Dalam. I managed comprehensive administration, drafted strategic proposals and accountability reports, handled official correspondence, and collaborated with key stakeholders to ensure the seamless execution of all initiatives.
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <div class="section-label">Portfolio</div>
+  <h2 class="section-heading">Key Projects</h2>
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <div class="project-card">
+      <img src="DATA KARYAWAN YANG DIKELOLA.png" 
+        alt="HR Employee Database & Manpower Monitoring Dashboard"
+        class="project-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.project-img-placeholder').style.display='flex';">
+        <div class="project-body">
+        <div class="project-tag">PT Tangguh Adi Perkasa · 2020–2025</div>
+        <div class="project-name">HR Employee Database & Manpower Monitoring Dashboard</div>
+        <p class="project-desc">Managed and monitored workforce data for 730+ employees across multiple departments using advanced Excel dashboards with XLOOKUP, Pivot Tables, and automated reporting — reducing administrative errors and improving workforce planning efficiency.</p>
+        <div class="project-tools">
+          <span class="tool-chip">Excel Advanced</span>
+          <span class="tool-chip">Pivot Table</span>
+          <span class="tool-chip">XLOOKUP</span>
+          <span class="tool-chip">SUMIF/COUNTIF</span>
+          <span class="tool-chip">Dashboard</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card">
+      <img src="ADMINISTRASI PENGADAAN MATERIAL & MONITORING LOGISTIK PROYEK.png" 
+        alt="Material Procurement & Logistics Monitoring Dashboard"
+        class="project-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.project-img-placeholder').style.display='flex';">
+      <div class="project-body">
+        <div class="project-tag">PT Tangguh Adi Perkasa · Operations</div>
+        <div class="project-name">Material Procurement & Logistics Monitoring Dashboard</div>
+        <p class="project-desc">Monitored procurement, delivery, and material inventory activities. Managed purchase orders, delivery orders, material receiving records, and supplier documentation — improving visibility of material status and reducing delivery record discrepancies.</p>
+        <div class="project-tools">
+          <span class="tool-chip">Excel Advanced</span>
+          <span class="tool-chip">Logistics Coord.</span>
+          <span class="tool-chip">Inventory Control</span>
+          <span class="tool-chip">Vendor Coordination</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card">
+      <img src="PROJECT ADMINISTRATION & LOGISTICS CONTROL.png" 
+        alt="Administration & Logistics Control — Warehouse Rack System"
+        class="project-img" 
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.project-img-placeholder').style.display='flex';">
+      <div class="project-body">
+        <div class="project-tag">PT Tangguh Adi Perkasa · Warehouse</div>
+        <div class="project-name">Administration & Logistics Control — Warehouse Rack System</div>
+        <p class="project-desc">Managed warehouse rack system project administration including material delivery control, imported and existing stock monitoring, installation requirement coordination, and project progress reporting aligned with timelines and operational requirements.</p>
+        <div class="project-tools">
+          <span class="tool-chip">Project Admin</span>
+          <span class="tool-chip">Supply Chain</span>
+          <span class="tool-chip">Inventory Mgmt</span>
+          <span class="tool-chip">Data Reporting</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">Credentials</div>
+  <h2 class="section-heading">Training & Certifications</h2>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <img src="Myskill sertifikat.png" 
+        alt="Data Analyst Intensive Bootcamp — Fullstack"
+        class="cert-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.cert-img-placeholder').style.display='flex';">
+
+      <div class="cert-body">
+        <div class="cert-name">Data Analyst Intensive Bootcamp — Fullstack</div>
+        <div class="cert-issuer">MySkill · 2026 (Batch 26, Jan–Mar 2026)</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="Upwork.png" 
+        alt="Upwork Masterclass"
+        class="cert-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.cert-img-placeholder').style.display='flex';">
+      <div class="cert-body">
+        <div class="cert-name">Upwork Masterclass</div>
+        <div class="cert-issuer">Remote Skills Academy · 2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="Super VA.png" 
+        alt="Super VA Bootcamp"
+        class="cert-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.cert-img-placeholder').style.display='flex';">
+      <div class="cert-body">
+        <div class="cert-name">Super VA Bootcamp</div>
+        <div class="cert-issuer">Remote Skills Academy · 2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="TOEFL.png" 
+        alt="TOEFL — Score 507"
+        class="cert-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.cert-img-placeholder').style.display='flex';">
+      <div class="cert-body">
+        <div class="cert-name">TOEFL — Score 507</div>
+        <div class="cert-issuer">TILA Academy (The International Languages Academy) · Dec 2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <img src="EXCEL.png"
+       alt="Microsoft Excel Fast Track Class"
+       class="cert-img"
+       onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.cert-img-placeholder').style.display='flex';">
+      <div class="cert-body">
+        <div class="cert-name">Microsoft Excel Fast Track Class</div>
+        <div class="cert-issuer">Sekolahmu – Yec.co.id · 2021</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ORGANIZATIONAL PARTICIPATION -->
+<section id="organization">
+  <div class="section-label">Organization</div>
+  <h2 class="section-heading">Organizational Involvement</h2>
+  <div class="org-grid">
+
+    <div class="org-card">
+      <img src="HIMAKOM.png" 
+        alt="HIMAKOM"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+
+      <div class="org-body">
+        <div class="org-name">Himpunan Mahasiswa Ilmu Komunikasi</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2024</div>
+        <div class="org-issuer">Secretary</div>
+      </div>
+    </div>
+
+    <div class="org-card">
+      <img src="KAI.png"
+        alt="KAI"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Company Visit PT Kereta Api Indonesia</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2024</div>
+        <div class="org-issuer">Secretary of the Organizing Committee</div>
+      </div>
+    </div>
+
+    <div class="org-card">
+      <img src="BADUY.png"
+        alt="BADUY"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">IKOM Goes to Baduy Dalam</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2023</div>
+        <div class="org-issuer">Secretary of the Organizing Committee</div>
+      </div>
+    </div>  
+
+    <div class="org-card">
+      <img src="SEMINAR NASIONAL PUBLIC SPEAKING.png"
+        alt="SEMINAR NASIONAL PUBLIC SPEAKING"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Seminar Nasional Public Speaking</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2023</div>
+        <div class="org-issuer">Participant</div>
+      </div>
+    </div>
+
+   <div class="org-card">
+      <img src="CYBER.png"
+        alt="Cerdas Dalam Berdigital Dan Menghadapi Kejahatan Cyber"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Seminar Nasional Cerdas Dalam Berdigital Dan Menghadapi Kejahatan Cyber</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2023</div>
+        <div class="org-issuer">Participant</div>
+      </div>
+    </div>  
+
+    <div class="org-card">
+      <img src="prospek digital.png"
+        alt="Prospek Digital"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Webinar Nasional "Prospek Digital Public Relations Dan Digital Marketing Communication"</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2023</div>
+        <div class="org-issuer">Participant</div>
+      </div>
+    </div>  
+ 
+    <div class="org-card">
+      <img src="rm.png"
+        alt="Pentingnya Public Speaking Di Era 5.0"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Webinar RM Public Speaking Class dengan tema Pentingnya Public Speaking Di Era 5.0</div>
+        <div class="org-issuer">RM Public Speaking - 2023</div>
+        <div class="org-issuer">Participant</div>
+      </div>
+    </div>      
+
+
+    <div class="org-card">
+      <img src="teknologi.png"
+        alt="teknologi"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Seminar Nasional dengan tema Cerdas Menyikapi Kemajuan Teknologi dan Komunikasi</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2022</div>
+        <div class="org-issuer">Participant</div>
+      </div>
+    </div>      
+    
+    <div class="org-card">
+      <img src="good journalism.png"
+        alt="good journalism"
+        class="org-img"
+        onerror="this.onerror=null; this.src=''; this.parentNode.querySelector('.org-img-placeholder').style.display='flex';">
+      
+        <div class="org-body">
+        <div class="org-name">Seminar Nasional dengan tema How To Be a Good Journalist</div>
+        <div class="org-issuer">Institut Bisnis Muhammadiyah Bekasi - 2021</div>
+        <div class="org-issuer">Participant</div>
+      </div>
+    </div>        
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-label">Let's Connect</div>
+  <h2 class="contact-heading">Let's Work<br>Together</h2>
+  <p class="contact-sub">Open to administrative, HR, and data operations roles — remote or onsite.</p>
+  <div class="contact-info">
+    <div class="contact-info-item">
+      <div class="contact-info-label">Phone</div>
+      <div class="contact-info-val">+62-882-1198-6691</div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-label">Email</div>
+      <div class="contact-info-val">frdnjn.jani@gmail.com</div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-label">Location</div>
+      <div class="contact-info-val">Indonesia</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Firda Anjani</div>
+  <div class="footer-copy">© 2026 · Administrative Professional Portfolio</div>
+</footer>
+
+</body>
+</html>
